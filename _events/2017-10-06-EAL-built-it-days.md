@@ -7,7 +7,6 @@ link: https://www.meetup.com/EAL-tech-events/events/243198724/
 organizer: "EAL"
 category: "eal"
 ---
-Built IT days is a place where we meet up, and over the weekend, built and work on tech projects. 
-See the meetup link for the details.
-
+Built IT days is a place where we meet up, and over the weekend, built and work on tech projects. <br/>
+See the meetup link for the details. <br/> <br/>
 Everybody is welcome - please signup, so we have an idea about how many will show up
