@@ -35,7 +35,12 @@ plugins:
   - fyntech_feed
   - liquid-md5
   - octopress-debugger
+  - jekyll-tidy
 
-exclude: ["vendor", "Gemfile", "Gemfile.lock", "README.md"]
+# Beautify HTML
+jekyll_tidy:
+  compress_html: false
 
 meetup_groups: ['CODE-Odense','Atlassian-Users-Odense','EAL-tech-events','Code-U-Odense','DevOps-Odense','Odense-Hacking-Group','Azure-Usergroup-Denmark-Odense','Docker-Odense', 'FLUG-Fyns-Linux-User-Group']
+
+exclude: ["vendor", "Gemfile", "Gemfile.lock", "README.md"]

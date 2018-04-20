@@ -10,4 +10,5 @@ gem 'meetup_client'
 group :jekyll_plugins do
    gem 'fyntech_feed', :git => 'https://github.com/fyntech/fyntech_feed.git', :tag => 'v0.1.3'
    gem 'octopress-debugger'
+   gem 'jekyll-tidy'
 end
