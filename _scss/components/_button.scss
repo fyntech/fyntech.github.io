@@ -1,0 +1,20 @@
+.btn {
+  background-color: $color-white;
+  border-bottom: 2px solid darken($color-white, 30%);
+  color: darken($color-text, 20%);
+  display: inline-block;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-white, 10%);
+    border-color: darken($color-white, 30%);
+  }
+}

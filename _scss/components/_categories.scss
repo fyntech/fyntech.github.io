@@ -1,0 +1,12 @@
+.category {
+  @each $category, $color in $categories {
+    &.category--#{$category} {
+      color: $color-white;
+      @if type-of($color) == 'list' {
+        background: linear-gradient(45deg, #{nth($color, 1)}, #{nth($color, 2)});
+      } @else {
+        background: $color;
+      }
+    }
+  }
+}

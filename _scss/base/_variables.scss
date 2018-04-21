@@ -1,10 +1,16 @@
 // Colors
-$color-background: #fff;
-$color-text: #666;
-$color-border: #eee;
-$color-heart: #c52c1a;
+$color-gallery: #efefef;
+$color-white: #fff;
+$color-dove-gray: #6d6c6c;
+$color-thunderbird: #c02b18;
+
+$color-background: $color-white;
+$color-text: $color-dove-gray;
+$color-border: $color-gallery;
+$color-heart: $color-thunderbird;
 
 // Categories
+$color-category: #ccc;
 $color-atlassian: #0052cc;
 $color-azure: #f13a59;
 $color-canceled: #ccc;
@@ -21,6 +27,25 @@ $color-prosa: #c52c1a;
 $color-vuc: #00a357;
 
 // Size
-$screen-xs: 480px !default;
+$screen-xs: 48em !default;
 $screen-xs-min: $screen-xs !default;
 $screen-phone: $screen-xs-min !default;
+
+// Categories
+$categories: (
+  atlassianusersodense: $color-atlassian,
+  azureusergroupdenmarkodense: $color-azure,
+  cancelled: $color-canceled,
+  codeodense: $color-codeodense,
+  codeu-continuousdeliveryusersodense: $color-codeu,
+  devops-odense: $color-devops,
+  dockerodense: $color-dockerodense,
+  ealtechevents: $color-eal,
+  flug-fynslinuxusergroup: $color-flug,
+  gaming: $color-gaming,
+  ida: $color-ida,
+  odensehackinggroup: $color-odensehacking,
+  prosa: $color-prosa,
+  vuc: $color-vuc,
+  eal-prosa: ($color-eal, $color-prosa)
+);

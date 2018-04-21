@@ -5,14 +5,10 @@
 @import 'base/fonts';
 @import 'base/base';
 
-//Layout
-@import 'layout/event';
-@import 'layout/events';
-@import 'layout/footer';
-
-// Modules
-@import 'module/buttons';
-@import 'module/categories';
-@import 'module/octo';
-@import 'module/tooltipped';
-@import 'module/heart';
+// Components
+@import 'components/button';
+@import 'components/categories';
+@import 'components/octo';
+@import 'components/heart';
+@import 'components/event';
+@import 'components/footer';
