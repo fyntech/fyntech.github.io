@@ -18,7 +18,7 @@ install:
   - pip3 install beautifulsoup4 --user
 
 before_script:
-  - python3 scripts/prosa-events.py
+  - python3 _scripts/prosa-events.py
   - bundle install
 
 script: 
