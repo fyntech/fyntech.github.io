@@ -11,7 +11,7 @@
     {% continue %}
   {% endif %}
 
-  {% if expire_date > current_date %}
+  {% if expire_date < current_date %}
     {% continue %}
   {% endif %}
 
