@@ -33,9 +33,9 @@ defaults:
 
 plugins:
   - fyntech_feed
+  - jekyll-tidy
   - liquid-md5
   - octopress-debugger
-  - jekyll-tidy
 
 # Beautify HTML
 jekyll_tidy:
