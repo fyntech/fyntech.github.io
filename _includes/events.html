@@ -1,0 +1,84 @@
+{% assign current_date = site.time | date: "%s" %}
+{% assign events = site.events | sort:"dateStart" %}
+{% for event in events %}
+  <!-- COMMENT -->
+  {% comment %} Check if the event is newer than the current date. {% endcomment %}
+  {% if event.dateEnd %}
+    {% assign expire_date = event.dateEnd | date: "%s" %}
+  {% elsif event.dateStart %}
+    {% assign expire_date = event.dateStart | date: "%s" %}
+  {% else %}
+    {% continue %}
+  {% endif %}
+
+  {% if expire_date > current_date %}
+    {% continue %}
+  {% endif %}
+
+  {% comment %} Generate event id {% endcomment %}
+  {% if event.dateStart and event.organizer and event.title %}
+    {% capture eventId %}
+      {{ event.dateStart | date: "%-d-%m-%Y" }}_
+      {{ event.organizer | downcase}}_
+      {{ event.title | downcase | replace: " ", "-" }}
+    {% endcapture %}
+
+    {% assign eventId = eventId | replace_regex: "/[^a-zA-Z0-9]/g", "" %}
+    {% assign eventId = eventId | replace_regex: "[(|)|/|&|']", "-" %}
+    {% assign eventId = eventId | strip_newlines | remove: " " %}
+  {% else %}
+      {% assign eventId = "" %}
+  {% endif %}
+
+  {% capture category %}
+    category category--{{event.category}}
+  {% endcapture %}
+
+  <div vocab="http://schema.org/" id="{{ eventId }}" class="event" typeof="Event">
+    {% if event.dateStart %}
+      <time class="event__date {{ category }}" property="startDate" content="{{ event.dateStart }}" datetime="{{ event.dateStart }}">{{ event.dateStart | date: "%-d %b %Y &bull; %H:%M"}}
+      {% if event.dateEnd %}
+        {% capture startDay %}{{ event.dateStart | date: '%-d %b %Y' }}{% endcapture %}
+        {% capture endDay %}{{ event.dateEnd | date: '%-d %b %Y' }}{% endcapture %}
+        {% if startDay != endDay %}
+          - {{ event.dateEnd | date: "%-d %b %Y &bull; %H:%M" }}
+        {% else %}
+          - {{ event.dateEnd | date: "%H:%M" }}
+        {% endif %}
+      {% endif %}
+      </time>
+    {% endif %}
+
+    {% if event.title %}
+      <h2 class="event__title" property="name">
+        {% if event.category == "cancelled" %}
+          Aflyst: 
+        {% endif %}
+
+        {{ event.title }}
+      </h2>
+    {% endif %}
+    
+    <div class="event__description">
+      {{ event.excerpt }}
+    </div>
+
+    <section class="event__info {{ category }}">
+      {% if event.organizer %}
+        <div class="event__organizer">
+          <b>{{ event.organizer }}</b>
+        </div>
+      {% endif %}
+
+      {% if event.location %}
+        <div class="event__location">
+          {{ event.location }}
+        </div>
+      {% endif %}
+
+      {% if event.link and event.link != "" %}
+        <a class="event__url btn" property="url" href="{{ event.link }}" target="_blank">Sign up / More info</a>
+      {% endif %}
+    </section>
+  </div>
+{% endfor %}
