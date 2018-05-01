@@ -1,0 +1,13 @@
+.feed {
+  list-style-type: none;
+
+  &__link {
+    text-decoration: none;
+
+    &--ical {
+      &::before {
+        content: '📅';
+      }
+    }
+  }
+}
