@@ -12,7 +12,7 @@ cache: bundler
 branches: { only: master }
 
 rvm:
-  - ruby-2.4.1
+  - ruby-2.5.1
 
 install:
   - pip3 install beautifulsoup4 --user
